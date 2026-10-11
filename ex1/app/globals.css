@@ -1,0 +1,35 @@
+:root {
+  font-family: Arial, sans-serif;
+  color: #172033;
+  background: #f4f7fb;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 4rem 1.25rem;
+}
+h1 {
+  margin-top: 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+p {
+  color: #526078;
+  line-height: 1.6;
+}
+.card {
+  background: white;
+  border: 1px solid #dce3ee;
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px #1720330d;
+}
+ul {
+  padding-left: 1.25rem;
+  line-height: 2;
+}
