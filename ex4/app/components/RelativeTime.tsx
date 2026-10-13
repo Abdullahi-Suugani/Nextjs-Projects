@@ -1,0 +1,4 @@
+"use client";
+import { useEffect, useState } from "react";
+function format(date: Date) { const seconds = Math.max(0, Math.floor((Date.now() - date.getTime()) / 1000)); if (seconds < 60) return "Just now"; const units: [number,string][] = [[86400,"day"],[3600,"hour"],[60,"minute"]]; for (const [size,name] of units) if (seconds >= size) { const count = Math.floor(seconds / size); return `${count} ${name}${count === 1 ? "" : "s"} ago`; } return "Just now"; }
+export default function RelativeTime({ date, label }: { date: string; label?: string }) { const parsed = new Date(date); const [value, setValue] = useState("Recently"); useEffect(() => { const tick = () => setValue(format(parsed)); tick(); const timer = setInterval(tick, 30000); return () => clearInterval(timer); }, [date]); return <time dateTime={date} title={parsed.toLocaleString()}>{label ? `${label} ${value.toLowerCase()}` : value}</time>; }
